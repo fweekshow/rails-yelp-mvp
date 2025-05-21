@@ -1,0 +1,16 @@
+<h1>All Restaurants</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <strong><%= link_to restaurant.name, restaurant_path(restaurant) %></strong><br>
+      <em><%= restaurant.address %></em><br>
+
+      <%# Add average rating line here 👇 %>
+      <strong>Average Rating:</strong> <%= restaurant.average_rating %> ⭐
+
+      <br>
+      <%= link_to "Leave a Review", new_restaurant_review_path(restaurant), class: "btn btn-sm btn-outline-primary mt-1" %>
+    </li>
+  <% end %>
+</ul>
